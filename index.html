@@ -350,10 +350,25 @@
             font-size: 1rem;
             line-height: 1.5;
         }
-    </style>
-</head>
+    
+.theme-toggle{position:fixed;top:16px;right:16px;z-index:1000;background:#fff;color:#881337;border:2px solid #be123c;border-radius:30px;padding:11px 17px;cursor:pointer;font-size:16px;font-weight:700;box-shadow:0 4px 16px #0004}
+.theme-toggle:focus-visible{outline:3px solid #facc15;outline-offset:3px}
+:root[data-theme="dark"]{color-scheme:dark;--primary:#fb7185;--primary-hover:#e11d48;--dark:#f8fafc;--light:#0f172a;--glass-bg:rgba(25,35,55,.96);--glass-border:#475569;--box-shadow:0 10px 40px #0006}
+:root[data-theme="dark"] .info-item,:root[data-theme="dark"] .product-card,:root[data-theme="dark"] .map-wrapper,:root[data-theme="dark"] footer{background:#1e293b;color:#f8fafc}
+:root[data-theme="dark"] .products-section{background:linear-gradient(135deg,#111827,#292035);border-top-color:#475569}
+:root[data-theme="dark"] .info-text h3,:root[data-theme="dark"] .product-card h3,:root[data-theme="dark"] .products-title{color:#f8fafc}
+:root[data-theme="dark"] .info-text p,:root[data-theme="dark"] .product-card p,:root[data-theme="dark"] .products-subtitle,:root[data-theme="dark"] footer{color:#cbd5e1}
+:root[data-theme="dark"] p.description{color:#e2e8f0}
+:root[data-theme="dark"] .rating{color:#fbbf24}
+:root[data-theme="dark"] footer{border-top-color:#475569}
+:root[data-theme="dark"] .theme-toggle{background:#1e293b;color:#fff;border-color:#fda4af}
+:root[data-theme="dark"] .cta-button{background:#be123c;color:#fff}
+:root[data-theme="dark"] .cta-button:hover{background:#9f1239}
+@media(max-width:480px){.theme-toggle{top:10px;right:10px;padding:9px 12px;font-size:14px}}
+</style>
+<script>try{if(localStorage.getItem('gavilanes-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script></head>
 
-<body>
+<body><button type="button" id="themeToggle" class="theme-toggle" aria-label="Activar tema oscuro" aria-pressed="false">🌙 Modo oscuro</button>
 
     <header class="hero">
         <div class="glass-card">
@@ -447,6 +462,8 @@
         &copy; 2026 Todos los derechos reservados. Diseño de demostración.
     </footer>
 
-</body>
+<script>
+(()=>{const b=document.getElementById('themeToggle');function setTheme(dark){if(dark)document.documentElement.dataset.theme='dark';else delete document.documentElement.dataset.theme;b.textContent=dark?'☀️ Modo claro':'🌙 Modo oscuro';b.setAttribute('aria-label',dark?'Activar tema claro':'Activar tema oscuro');b.setAttribute('aria-pressed',String(dark))}setTheme(document.documentElement.dataset.theme==='dark');b.addEventListener('click',()=>{const dark=document.documentElement.dataset.theme!=='dark';setTheme(dark);try{localStorage.setItem('gavilanes-theme',dark?'dark':'light')}catch(e){}})})();
+</script></body>
 
 </html>
