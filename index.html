@@ -395,14 +395,28 @@
 :root[data-theme="dark"][data-halloween="on"] .rating{color:#fbbf24}
 :root[data-theme="dark"][data-halloween="on"] .badge{color:#7c2d12}
 @media(max-width:480px){.halloween-toggle{top:57px;right:10px;padding:8px 11px;font-size:13px}.halloween-decoration{top:112px;font-size:21px}}
-</style>
-<script>try{if(localStorage.getItem('gavilanes-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script><script>try{if(localStorage.getItem('gavilanes-halloween')==='on')document.documentElement.dataset.halloween='on'}catch(e){}</script></head>
 
-<body>
-<button type="button" id="halloweenToggle" class="halloween-toggle" aria-label="Activar decoración de Halloween" aria-pressed="false">🎃 Halloween</button><button type="button" id="themeToggle" class="theme-toggle" aria-label="Activar tema oscuro" aria-pressed="false">🌙 Modo oscuro</button>
+/* Halloween permanente: murciélagos y telarañas */
+.halloween-scene{position:fixed;inset:0;z-index:900;pointer-events:none;overflow:hidden}
+.halloween-scene .web{position:absolute;font-size:clamp(55px,10vw,120px);line-height:1;opacity:.8;filter:drop-shadow(0 2px 3px #0007)}
+.halloween-scene .tl{top:-15px;left:-15px;transform:rotate(-25deg)}
+.halloween-scene .tr{top:-15px;right:-15px;transform:scaleX(-1) rotate(-25deg)}
+.halloween-scene .bl{bottom:-15px;left:-15px;transform:rotate(25deg)}
+.halloween-scene .br{bottom:-15px;right:-15px;transform:scaleX(-1) rotate(25deg)}
+.halloween-scene .bat{position:absolute;top:0;left:0;font-size:clamp(23px,4vw,40px);opacity:.9;animation:bat-flight 17s linear infinite;filter:drop-shadow(0 2px 3px #0009)}
+.halloween-scene .b1{animation-delay:-3s}
+.halloween-scene .b2{animation-delay:-9s;animation-duration:21s}
+.halloween-scene .b3{animation-delay:-15s;animation-duration:25s}
+@keyframes bat-flight{0%{transform:translate(-12vw,15vh) rotate(-12deg)}25%{transform:translate(25vw,8vh) rotate(10deg)}50%{transform:translate(53vw,26vh) rotate(-12deg)}75%{transform:translate(80vw,12vh) rotate(12deg)}100%{transform:translate(112vw,19vh) rotate(-8deg)}}
+@media(prefers-reduced-motion:reduce){.halloween-scene .bat{animation:none;transform:translate(50vw,10vh)}.halloween-scene .b2,.halloween-scene .b3{display:none}}
+</style>
+<script>try{if(localStorage.getItem('gavilanes-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script><script>document.documentElement.dataset.halloween='on';</script></head>
+
+<body><div class="halloween-scene" aria-hidden="true"><span class="web tl">🕸️</span><span class="web tr">🕸️</span><span class="web bl">🕸️</span><span class="web br">🕸️</span><span class="bat b1">🦇</span><span class="bat b2">🦇</span><span class="bat b3">🦇</span></div>
+<button type="button" id="themeToggle" class="theme-toggle" aria-label="Activar tema oscuro" aria-pressed="false">🌙 Modo oscuro</button>
 
     <header class="hero">
-<div class="halloween-decoration" aria-hidden="true"><span>🦇</span><span>🎃</span><span>👻</span><span>🕸️</span><span>🦇</span></div>
+<div class="halloween-decoration" aria-hidden="true"><span>🎃</span><span>👻</span></div>
         <div class="glass-card">
             <span class="badge">Especialidad en Pollo</span>
             <h1>Los Gavilanes</h1>
@@ -497,23 +511,6 @@
 
 <script>
 (()=>{const b=document.getElementById('themeToggle');function setTheme(dark){if(dark)document.documentElement.dataset.theme='dark';else delete document.documentElement.dataset.theme;b.textContent=dark?'☀️ Modo claro':'🌙 Modo oscuro';b.setAttribute('aria-label',dark?'Activar tema claro':'Activar tema oscuro');b.setAttribute('aria-pressed',String(dark))}setTheme(document.documentElement.dataset.theme==='dark');b.addEventListener('click',()=>{const dark=document.documentElement.dataset.theme!=='dark';setTheme(dark);try{localStorage.setItem('gavilanes-theme',dark?'dark':'light')}catch(e){}})})();
-</script><script>
-(() => {
-  const button = document.getElementById('halloweenToggle');
-  const update = (enabled) => {
-    if (enabled) document.documentElement.dataset.halloween = 'on';
-    else delete document.documentElement.dataset.halloween;
-    button.textContent = enabled ? '🎃 Halloween ✓' : '🎃 Halloween';
-    button.setAttribute('aria-pressed',String(enabled));
-    button.setAttribute('aria-label', enabled ? 'Desactivar decoración de Halloween' : 'Activar decoración de Halloween');
-  };
-  update(document.documentElement.dataset.halloween === 'on');
-  button.addEventListener('click', () => {
-    const enabled = document.documentElement.dataset.halloween !== 'on';
-    update(enabled);
-    try {localStorage.setItem('gavilanes-halloween', enabled ? 'on' : 'off')}catch(e){}
-  });
-})();
 </script></body>
 
 </html>
