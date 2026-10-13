@@ -415,6 +415,15 @@
 100%{transform:translate(var(--bat-x),110vh) rotate(-12deg) scale(.8);opacity:0}
 }
 @media(prefers-reduced-motion:reduce){.halloween-scene .bat{animation:none;opacity:0}}
+
+        .hero-cta-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; justify-content: center; }
+        .hero-cta-actions .cta-button { padding: 14px 24px; font-size: 1rem; }
+        .hero-cta-actions .cta-maps { background: #334155; color: #fff; box-shadow: 0 8px 25px #0003; }
+        .hero-cta-actions .cta-maps:hover { background: #1e293b; }
+        html { scroll-behavior: smooth; }
+        #menu { scroll-margin-top: 25px; }
+        @media (max-width: 480px) { .hero-cta-actions { flex-direction: column; } .hero-cta-actions .cta-button { width: 100%; } }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 <script>try{if(localStorage.getItem('gavilanes-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script><script>document.documentElement.dataset.halloween='on';</script></head>
 
@@ -432,10 +441,10 @@
             <p class="description">
                 Rosticería &quot;Los Gavilanes&quot;
             </p>
-            <a href="https://maps.app.goo.gl/VkP6N3KNesrVycSb7" target="_blank" class="cta-button"
-                rel="noopener noreferrer">
-                🍗 Ver Menú & Pedir en Maps
-            </a>
+            <div class="hero-cta-actions">
+                <a href="#menu" class="cta-button">🍗 Ver menú</a>
+                <a href="https://maps.app.goo.gl/VkP6N3KNesrVycSb7" target="_blank" rel="noopener noreferrer" class="cta-button cta-maps">📍 Ver en Maps</a>
+            </div>
         </div>
     </header>
 
@@ -471,7 +480,7 @@
     </main>
 
     <!-- Sección de productos -->
-    <section class="products-section">
+    <section class="products-section" id="menu">
         <div class="products-inner">
             <h2 class="products-title">🛒 Nuestros Productos</h2>
             <p class="products-subtitle">Todo lo que encuentras en nuestro local</p>
