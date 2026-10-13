@@ -403,12 +403,18 @@
 .halloween-scene .tr{top:-15px;right:-15px;transform:scaleX(-1) rotate(-25deg)}
 .halloween-scene .bl{bottom:-15px;left:-15px;transform:rotate(25deg)}
 .halloween-scene .br{bottom:-15px;right:-15px;transform:scaleX(-1) rotate(25deg)}
-.halloween-scene .bat{position:absolute;top:0;left:0;font-size:clamp(23px,4vw,40px);opacity:.9;animation:bat-flight 17s linear infinite;filter:drop-shadow(0 2px 3px #0009)}
-.halloween-scene .b1{animation-delay:-3s}
-.halloween-scene .b2{animation-delay:-9s;animation-duration:21s}
-.halloween-scene .b3{animation-delay:-15s;animation-duration:25s}
-@keyframes bat-flight{0%{transform:translate(-12vw,15vh) rotate(-12deg)}25%{transform:translate(25vw,8vh) rotate(10deg)}50%{transform:translate(53vw,26vh) rotate(-12deg)}75%{transform:translate(80vw,12vh) rotate(12deg)}100%{transform:translate(112vw,19vh) rotate(-8deg)}}
-@media(prefers-reduced-motion:reduce){.halloween-scene .bat{animation:none;transform:translate(50vw,10vh)}.halloween-scene .b2,.halloween-scene .b3{display:none}}
+.halloween-scene .bat{position:absolute;top:0;left:0;font-size:clamp(25px,4vw,45px);opacity:0;filter:drop-shadow(0 3px 4px #000a);animation:bat-descend 5.5s ease-in-out forwards;will-change:transform,opacity}
+.halloween-scene .b1{--bat-x:15vw;--bat-drift:6vw;animation-delay:.15s}
+.halloween-scene .b2{--bat-x:49vw;--bat-drift:-8vw;animation-delay:.55s;font-size:32px}
+.halloween-scene .b3{--bat-x:78vw;--bat-drift:5vw;animation-delay:1s;font-size:38px}
+@keyframes bat-descend{
+0%{transform:translate(var(--bat-x),-15vh) rotate(-16deg) scale(.65);opacity:0}
+12%{opacity:1}
+45%{transform:translate(calc(var(--bat-x) + var(--bat-drift)),35vh) rotate(14deg) scale(1.1);opacity:1}
+75%{opacity:1}
+100%{transform:translate(var(--bat-x),110vh) rotate(-12deg) scale(.8);opacity:0}
+}
+@media(prefers-reduced-motion:reduce){.halloween-scene .bat{animation:none;opacity:0}}
 </style>
 <script>try{if(localStorage.getItem('gavilanes-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script><script>document.documentElement.dataset.halloween='on';</script></head>
 
