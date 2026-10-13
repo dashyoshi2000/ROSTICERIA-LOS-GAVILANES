@@ -424,6 +424,21 @@
         #menu { scroll-margin-top: 25px; }
         @media (max-width: 480px) { .hero-cta-actions { flex-direction: column; } .hero-cta-actions .cta-button { width: 100%; } }
         @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+        .road-notice { display:flex; align-items:flex-start; gap:22px; max-width:1150px; margin:70px auto 0; padding:28px 32px; border:2px solid #fb923c; border-left:8px solid #ea580c; border-radius:22px; background:#fff7ed; color:#431407; box-shadow:0 12px 30px #0002; }
+        .road-notice-icon { font-size:3rem; line-height:1; }
+        .road-notice-label { font-size:.82rem; text-transform:uppercase; font-weight:800; letter-spacing:.08em; color:#9a3412; }
+        .road-notice h2 { font-size:clamp(1.4rem,3vw,2rem); margin:6px 0 13px; color:#7c2d12; }
+        .road-notice p { font-size:1.05rem; line-height:1.6; margin:10px 0; }
+        .phone-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:16px; }
+        .phone-list a { display:block; padding:12px 8px; text-align:center; font-size:1rem; font-weight:700; color:#9f1239; background:#fff1f2; border:1px solid #fecdd3; border-radius:10px; text-decoration:none; }
+        .phone-list a:hover,.phone-list a:focus-visible { background:#ffe4e6; text-decoration:underline; }
+        .contact-info .info-text { min-width:0; width:100%; }
+        :root[data-theme="dark"] .road-notice { background:#302034; color:#fce7d1; border-color:#fdba74; border-left-color:#fb923c; }
+        :root[data-theme="dark"] .road-notice h2,:root[data-theme="dark"] .road-notice-label { color:#fdba74; }
+        :root[data-theme="dark"] .phone-list a { background:#39243e; color:#ffe4e6; border-color:#a78bfa; }
+        :root[data-theme="dark"] .phone-list a:hover { background:#4c3151; }
+        @media(max-width:760px) { .road-notice {margin:38px 16px 0;padding:22px 18px;gap:12px}.road-notice-icon{font-size:2rem}.phone-list{grid-template-columns:1fr}.info-item{padding:20px 16px;gap:12px} }
 </style>
 <script>try{if(localStorage.getItem('gavilanes-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script><script>document.documentElement.dataset.halloween='on';</script></head>
 
@@ -449,6 +464,15 @@
     </header>
 
     <div class="halloween-ribbon">🎃 ¡Temporada de Halloween en Los Gavilanes! 👻</div>
+    <aside class="road-notice" aria-labelledby="road-notice-title">
+        <div class="road-notice-icon" aria-hidden="true">📢</div>
+        <div>
+            <span class="road-notice-label">Aviso importante a nuestros clientes</span>
+            <h2 id="road-notice-title">🚧 Obras en Avenida Juárez</h2>
+            <p>Por las obras del colector municipal, en los próximos días la Avenida Juárez, donde se encuentra nuestro local, permanecerá cerrada.</p>
+            <p><strong>¡Seguimos abiertos y dando servicio!</strong> Si no puedes llegar a nuestra rosticería, llámanos y nosotros vamos hasta ti.</p>
+        </div>
+    </aside>
     <main class="content-section">
         <div class="info-grid">
             <div class="info-item">
@@ -467,6 +491,19 @@
                 </div>
             </div>
 
+            <div class="info-item contact-info">
+                <div class="info-icon" aria-hidden="true">☎️</div>
+                <div class="info-text">
+                    <h3>Teléfonos de contacto</h3>
+                    <p>Comunícate a nuestras líneas fijas para consultas y servicio a domicilio:</p>
+                    <div class="phone-list">
+                        <a href="tel:+525589675290">55 89 67 52 90</a>
+                        <a href="tel:+525659437761">56 59 43 77 61</a>
+                        <a href="tel:+525549115290">55 49 11 52 90</a>
+                        <a href="tel:+525549117979">55 49 11 79 79</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="map-wrapper">
