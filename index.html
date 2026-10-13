@@ -365,12 +365,44 @@
 :root[data-theme="dark"] .cta-button{background:#be123c;color:#fff}
 :root[data-theme="dark"] .cta-button:hover{background:#9f1239}
 @media(max-width:480px){.theme-toggle{top:10px;right:10px;padding:9px 12px;font-size:14px}}
-</style>
-<script>try{if(localStorage.getItem('gavilanes-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script></head>
 
-<body><button type="button" id="themeToggle" class="theme-toggle" aria-label="Activar tema oscuro" aria-pressed="false">🌙 Modo oscuro</button>
+/* Halloween: decoración opcional, independiente del modo claro/oscuro */
+.halloween-toggle{position:fixed;top:16px;right:185px;z-index:1000;background:#301047;color:#fff;border:2px solid #fb923c;border-radius:30px;padding:11px 15px;cursor:pointer;font-size:15px;font-weight:700;box-shadow:0 4px 16px #0004}
+.halloween-toggle:focus-visible{outline:3px solid #facc15;outline-offset:3px}
+.halloween-decoration{display:none;position:absolute;z-index:2;left:0;right:0;top:22px;pointer-events:none;justify-content:space-around;font-size:clamp(22px,4vw,44px);filter:drop-shadow(0 4px 5px #0008)}
+.halloween-ribbon{display:none;padding:15px 18px;text-align:center;background:#301047;color:#fff2d8;font-weight:700;font-size:clamp(15px,2.3vw,22px);border-bottom:3px solid #fb923c}
+:root[data-halloween="on"]{--primary:#ea580c;--primary-hover:#c2410c;--light:#fff7ed;--dark:#2e1065;--glass-bg:rgba(255,247,237,.95)}
+:root[data-halloween="on"] .halloween-decoration{display:flex}
+:root[data-halloween="on"] .halloween-ribbon{display:block}
+:root[data-halloween="on"] .hero::before{background:linear-gradient(135deg,rgba(39,13,65,.85),rgba(154,52,18,.62))}
+:root[data-halloween="on"] .products-section{background:linear-gradient(135deg,#ffedd5,#f3e8ff);border-top-color:#fb923c}
+:root[data-halloween="on"] .badge{background:#fed7aa;color:#7c2d12}
+:root[data-halloween="on"] .rating{color:#a16207}
+:root[data-halloween="on"] .cta-button{background:#c2410c;color:#fff}
+:root[data-halloween="on"] .cta-button:hover{background:#9a3412}
+:root[data-halloween="on"] .info-icon{background:#ffedd5;color:#9a3412}
+:root[data-halloween="on"] .halloween-toggle{background:#ea580c;border-color:#fed7aa;color:#fff}
+:root[data-theme="dark"][data-halloween="on"]{--light:#140f23;--dark:#f8fafc;--glass-bg:rgba(36,22,49,.95)}
+:root[data-theme="dark"][data-halloween="on"] .products-section{background:linear-gradient(135deg,#231233,#3b1b24)}
+:root[data-theme="dark"][data-halloween="on"] .product-card,
+:root[data-theme="dark"][data-halloween="on"] .info-item{background:#2d203a;border-color:#a855f7}
+:root[data-theme="dark"][data-halloween="on"] .product-card h3,
+:root[data-theme="dark"][data-halloween="on"] .info-text h3,
+:root[data-theme="dark"][data-halloween="on"] .products-title{color:#fff7ed}
+:root[data-theme="dark"][data-halloween="on"] .product-card p,
+:root[data-theme="dark"][data-halloween="on"] .info-text p,
+:root[data-theme="dark"][data-halloween="on"] .products-subtitle{color:#e9d5ff}
+:root[data-theme="dark"][data-halloween="on"] .rating{color:#fbbf24}
+:root[data-theme="dark"][data-halloween="on"] .badge{color:#7c2d12}
+@media(max-width:480px){.halloween-toggle{top:57px;right:10px;padding:8px 11px;font-size:13px}.halloween-decoration{top:112px;font-size:21px}}
+</style>
+<script>try{if(localStorage.getItem('gavilanes-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script><script>try{if(localStorage.getItem('gavilanes-halloween')==='on')document.documentElement.dataset.halloween='on'}catch(e){}</script></head>
+
+<body>
+<button type="button" id="halloweenToggle" class="halloween-toggle" aria-label="Activar decoración de Halloween" aria-pressed="false">🎃 Halloween</button><button type="button" id="themeToggle" class="theme-toggle" aria-label="Activar tema oscuro" aria-pressed="false">🌙 Modo oscuro</button>
 
     <header class="hero">
+<div class="halloween-decoration" aria-hidden="true"><span>🦇</span><span>🎃</span><span>👻</span><span>🕸️</span><span>🦇</span></div>
         <div class="glass-card">
             <span class="badge">Especialidad en Pollo</span>
             <h1>Los Gavilanes</h1>
@@ -387,6 +419,7 @@
         </div>
     </header>
 
+    <div class="halloween-ribbon">🎃 ¡Temporada de Halloween en Los Gavilanes! 👻</div>
     <main class="content-section">
         <div class="info-grid">
             <div class="info-item">
@@ -464,6 +497,23 @@
 
 <script>
 (()=>{const b=document.getElementById('themeToggle');function setTheme(dark){if(dark)document.documentElement.dataset.theme='dark';else delete document.documentElement.dataset.theme;b.textContent=dark?'☀️ Modo claro':'🌙 Modo oscuro';b.setAttribute('aria-label',dark?'Activar tema claro':'Activar tema oscuro');b.setAttribute('aria-pressed',String(dark))}setTheme(document.documentElement.dataset.theme==='dark');b.addEventListener('click',()=>{const dark=document.documentElement.dataset.theme!=='dark';setTheme(dark);try{localStorage.setItem('gavilanes-theme',dark?'dark':'light')}catch(e){}})})();
+</script><script>
+(() => {
+  const button = document.getElementById('halloweenToggle');
+  const update = (enabled) => {
+    if (enabled) document.documentElement.dataset.halloween = 'on';
+    else delete document.documentElement.dataset.halloween;
+    button.textContent = enabled ? '🎃 Halloween ✓' : '🎃 Halloween';
+    button.setAttribute('aria-pressed',String(enabled));
+    button.setAttribute('aria-label', enabled ? 'Desactivar decoración de Halloween' : 'Activar decoración de Halloween');
+  };
+  update(document.documentElement.dataset.halloween === 'on');
+  button.addEventListener('click', () => {
+    const enabled = document.documentElement.dataset.halloween !== 'on';
+    update(enabled);
+    try {localStorage.setItem('gavilanes-halloween', enabled ? 'on' : 'off')}catch(e){}
+  });
+})();
 </script></body>
 
 </html>
