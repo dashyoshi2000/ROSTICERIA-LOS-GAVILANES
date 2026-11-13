@@ -366,23 +366,60 @@
 :root[data-theme="dark"] .cta-button:hover{background:#9f1239}
 @media(max-width:480px){.theme-toggle{top:10px;right:10px;padding:9px 12px;font-size:14px}}
 
-/* Noviembre: otoño, cempasúchil y fiestas de la temporada */
-:root[data-november="on"]{--primary:#d97706;--primary-hover:#b45309;--light:#fffbeb;--dark:#431407;--glass-bg:rgba(255,251,235,.95)}
-.november-ribbon{display:none;padding:15px 18px;text-align:center;background:#7c2d12;color:#fef3c7;font-weight:700;font-size:clamp(15px,2.3vw,22px);border-bottom:3px solid #f59e0b}
+/* Noviembre: otoño, cempasúchil, tradición y fiestas de la temporada */
+:root[data-november="on"]{--primary:#d97706;--primary-hover:#b45309;--light:#fffbeb;--dark:#431407;--glass-bg:rgba(255,251,235,.94);--glass-border:rgba(245,158,11,.45)}
+.november-ribbon{display:none;padding:16px 20px;text-align:center;background:linear-gradient(90deg,#7c2d12,#9a3412,#7c2d12);color:#fef3c7;font-weight:700;font-size:clamp(15px,2.2vw,21px);border-top:2px solid #fbbf24;border-bottom:3px solid #f59e0b;box-shadow:0 6px 20px rgba(124,45,18,.25);letter-spacing:.3px}
 :root[data-november="on"] .november-ribbon{display:block}
-.november-decoration{display:none;position:absolute;z-index:2;left:0;right:0;top:22px;pointer-events:none;justify-content:space-around;font-size:clamp(22px,4vw,44px);filter:drop-shadow(0 4px 5px #0008)}
+
+/* Papel picado tradicional en la parte superior del Hero */
+.papel-picado{display:none;position:absolute;top:0;left:0;right:0;z-index:3;justify-content:center;gap:6px;padding:0 8px;pointer-events:none;overflow:hidden}
+:root[data-november="on"] .papel-picado{display:flex}
+.papel-flag{flex:1 0 68px;max-width:110px;height:42px;background:var(--flag-color,#f59e0b);clip-path:polygon(0 0,100% 0,100% 72%,84% 100%,68% 72%,50% 100%,32% 72%,16% 100%,0 72%);opacity:.92;box-shadow:0 4px 10px rgba(0,0,0,.25);position:relative;animation:flag-wave 3.6s ease-in-out infinite alternate;transform-origin:top center}
+.papel-flag:nth-child(even){animation-delay:.9s}
+.papel-flag:nth-child(3n){animation-delay:1.7s}
+.papel-flag::after{content:'✦ ❖ ✦';position:absolute;inset:4px 0 auto;text-align:center;font-size:11px;color:rgba(255,255,255,.75);letter-spacing:2px}
+@keyframes flag-wave{0%{transform:rotate(-1.5deg) scaleY(.98)}100%{transform:rotate(1.5deg) scaleY(1.03)}}
+
+.november-decoration{display:none;position:absolute;z-index:2;left:0;right:0;top:52px;pointer-events:none;justify-content:space-around;font-size:clamp(24px,3.8vw,42px);filter:drop-shadow(0 4px 8px rgba(0,0,0,.55))}
 :root[data-november="on"] .november-decoration{display:flex}
-:root[data-november="on"] .hero::before{background:linear-gradient(135deg,rgba(67,20,7,.82),rgba(217,119,6,.55))}
-:root[data-november="on"] .products-section{background:linear-gradient(135deg,#fef3c7,#ffedd5);border-top-color:#f59e0b}
-:root[data-november="on"] .badge{background:#fde68a;color:#78350f}
-:root[data-november="on"] .rating{color:#a16207}
-:root[data-november="on"] .cta-button{background:#b45309;color:#fff}
-:root[data-november="on"] .cta-button:hover{background:#92400e}
-:root[data-november="on"] .info-icon{background:#fef3c7;color:#92400e}
-:root[data-theme="dark"][data-november="on"]{--light:#1c120b;--dark:#f8fafc;--glass-bg:rgba(41,28,18,.95)}
-:root[data-theme="dark"][data-november="on"] .products-section{background:linear-gradient(135deg,#2a1a0e,#3b1f12)}
+.november-decoration span{animation:float-autumn 4s ease-in-out infinite alternate}
+.november-decoration span:nth-child(even){animation-delay:1.2s}
+@keyframes float-autumn{0%{transform:translateY(0) rotate(-6deg)}100%{transform:translateY(8px) rotate(6deg)}}
+
+:root[data-november="on"] .hero::before{background:linear-gradient(135deg,rgba(67,20,7,.84),rgba(180,83,9,.52),rgba(88,28,135,.38))}
+:root[data-november="on"] .glass-card{border:2px solid rgba(245,158,11,.5);box-shadow:0 18px 50px rgba(67,20,7,.35)}
+:root[data-november="on"] .products-section{background:linear-gradient(135deg,#fef3c7,#ffedd5,#fde68a);border-top:2px solid #f59e0b}
+:root[data-november="on"] .badge{background:linear-gradient(135deg,#fde68a,#fcd34d);color:#78350f;border:1px solid #f59e0b;box-shadow:0 2px 10px rgba(217,119,6,.2)}
+:root[data-november="on"] .rating{color:#b45309}
+:root[data-november="on"] .cta-button{background:linear-gradient(135deg,#d97706,#b45309);color:#fff;box-shadow:0 8px 25px rgba(180,83,9,.4)}
+:root[data-november="on"] .cta-button:hover{background:linear-gradient(135deg,#b45309,#92400e)}
+:root[data-november="on"] .hero-cta-actions .cta-maps{background:#431407;border:1px solid #f59e0b}
+:root[data-november="on"] .hero-cta-actions .cta-maps:hover{background:#2a0c04}
+:root[data-november="on"] .info-icon{background:#fef3c7;color:#92400e;border:1px solid #fde68a}
+
+/* Tarjeta destacada de Especiales de Noviembre */
+.november-promo-banner{display:none;background:linear-gradient(135deg,#7c2d12 0%,#9a3412 55%,#581c87 100%);color:#fffbeb;border-radius:26px;padding:34px 36px;margin-bottom:44px;border:2px solid #fbbf24;box-shadow:0 16px 36px rgba(124,45,18,.22);position:relative;overflow:hidden}
+:root[data-november="on"] .november-promo-banner{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.november-promo-content{flex:1 1 480px}
+.november-promo-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(251,191,36,.22);border:1px solid #fbbf24;color:#fde68a;padding:5px 14px;border-radius:999px;font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}
+.november-promo-content h3{font-size:clamp(1.5rem,2.6vw,2.1rem);color:#fef3c7;margin-bottom:10px;line-height:1.2}
+.november-promo-content p{color:#fed7aa;font-size:1.08rem;line-height:1.6;margin-bottom:16px}
+.november-promo-highlights{display:flex;flex-wrap:wrap;gap:10px}
+.november-promo-pill{background:rgba(255,251,235,.13);border:1px solid rgba(253,230,138,.4);color:#fffbeb;padding:7px 14px;border-radius:12px;font-size:.95rem;font-weight:600}
+.november-promo-cta{display:inline-flex;align-items:center;gap:10px;background:#fbbf24;color:#431407;font-weight:800;font-size:1.08rem;padding:15px 28px;border-radius:999px;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,.25);transition:transform .25s ease,background .25s ease;white-space:nowrap}
+.november-promo-cta:hover{background:#f59e0b;transform:translateY(-3px)}
+
+/* Etiquetas de temporada en las tarjetas de productos */
+.seasonal-tag{display:none;margin-bottom:12px;padding:4px 12px;border-radius:999px;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;background:#fef3c7;color:#92400e;border:1px solid #f59e0b}
+:root[data-november="on"] .seasonal-tag{display:inline-block}
+:root[data-november="on"] .product-card.seasonal-star{border:2px solid #f59e0b;background:linear-gradient(180deg,#ffffff,#fffbeb)}
+
+:root[data-theme="dark"][data-november="on"]{--light:#1c120b;--dark:#f8fafc;--glass-bg:rgba(41,24,14,.94)}
+:root[data-theme="dark"][data-november="on"] .products-section{background:linear-gradient(135deg,#23140b,#351a10,#28122b)}
 :root[data-theme="dark"][data-november="on"] .product-card,
-:root[data-theme="dark"][data-november="on"] .info-item{background:#33231a;border-color:#f59e0b}
+:root[data-theme="dark"][data-november="on"] .info-item{background:#2e1d14;border-color:#d97706}
+:root[data-theme="dark"][data-november="on"] .product-card.seasonal-star{background:linear-gradient(180deg,#382215,#291810);border-color:#fbbf24}
+:root[data-theme="dark"][data-november="on"] .seasonal-tag{background:#451a03;color:#fde68a;border-color:#d97706}
 :root[data-theme="dark"][data-november="on"] .product-card h3,
 :root[data-theme="dark"][data-november="on"] .info-text h3,
 :root[data-theme="dark"][data-november="on"] .products-title{color:#fff7ed}
@@ -391,20 +428,25 @@
 :root[data-theme="dark"][data-november="on"] .products-subtitle{color:#fde68a}
 :root[data-theme="dark"][data-november="on"] .rating{color:#fbbf24}
 :root[data-theme="dark"][data-november="on"] .badge{color:#78350f}
-@media(max-width:480px){.november-decoration{top:112px;font-size:21px}}
+@media(max-width:600px){
+  .november-decoration{top:64px;font-size:22px}
+  .papel-flag{height:30px;flex-basis:46px}
+  .november-promo-banner{padding:24px 20px}
+  .november-promo-cta{width:100%;justify-content:center}
+}
 
-/* Lluvia suave de pétalos de cempasúchil y hojas de otoño al abrir la página */
+/* Lluvia continua y suave de pétalos de cempasúchil y hojas de otoño */
 .november-scene{position:fixed;inset:0;z-index:900;pointer-events:none;overflow:hidden}
-.november-scene .petal{position:absolute;top:-8vh;left:var(--x);font-size:var(--s);opacity:0;filter:drop-shadow(0 2px 3px #0006);animation:petal-fall var(--dur) ease-in-out var(--delay) forwards;will-change:transform,opacity}
+.november-scene .petal{position:absolute;top:-8vh;left:var(--x);font-size:var(--s);opacity:0;filter:drop-shadow(0 2px 3px #0006);animation:petal-fall var(--dur) ease-in-out var(--delay) infinite;will-change:transform,opacity}
 @keyframes petal-fall{
 0%{transform:translate(0,0) rotate(0deg);opacity:0}
-8%{opacity:1}
-30%{transform:translate(var(--sway),30vh) rotate(110deg)}
-60%{transform:translate(calc(var(--sway) * -1),68vh) rotate(230deg)}
-90%{opacity:1}
+10%{opacity:.9}
+35%{transform:translate(var(--sway),34vh) rotate(115deg)}
+65%{transform:translate(calc(var(--sway) * -1),70vh) rotate(235deg)}
+88%{opacity:.85}
 100%{transform:translate(var(--sway),112vh) rotate(360deg);opacity:0}
 }
-@media(prefers-reduced-motion:reduce){.november-scene{display:none}}
+@media(prefers-reduced-motion:reduce){.november-scene,.papel-flag,.november-decoration span{animation:none!important}.november-scene{display:none}}
 
 .hero-cta-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; justify-content: center; }
         .hero-cta-actions .cta-button { padding: 14px 24px; font-size: 1rem; }
@@ -436,24 +478,38 @@
 <button type="button" id="themeToggle" class="theme-toggle" aria-label="Activar tema oscuro" aria-pressed="false">🌙 Modo oscuro</button>
 
     <header class="hero">
-<div class="november-decoration" aria-hidden="true"><span>🌼</span><span>🍂</span></div>
+        <div class="papel-picado" aria-hidden="true">
+            <span class="papel-flag" style="--flag-color:#f59e0b"></span>
+            <span class="papel-flag" style="--flag-color:#9333ea"></span>
+            <span class="papel-flag" style="--flag-color:#ea580c"></span>
+            <span class="papel-flag" style="--flag-color:#db2777"></span>
+            <span class="papel-flag" style="--flag-color:#d97706"></span>
+            <span class="papel-flag" style="--flag-color:#7e22ce"></span>
+            <span class="papel-flag" style="--flag-color:#f59e0b"></span>
+            <span class="papel-flag" style="--flag-color:#ea580c"></span>
+            <span class="papel-flag" style="--flag-color:#db2777"></span>
+            <span class="papel-flag" style="--flag-color:#9333ea"></span>
+            <span class="papel-flag" style="--flag-color:#f59e0b"></span>
+            <span class="papel-flag" style="--flag-color:#ea580c"></span>
+        </div>
+        <div class="november-decoration" aria-hidden="true"><span>🌼</span><span>🕯️</span><span>🍂</span><span>🦃</span><span>🍁</span><span>🌼</span></div>
         <div class="glass-card">
-            <span class="badge">Especialidad en Pollo</span>
+            <span class="badge">🍂 Temporada de Noviembre • Especialidad en Pollo 🌼</span>
             <h1>Los Gavilanes</h1>
             <div class="rating">
                 ⭐⭐⭐⭐ 4.3 (80 reseñas)
             </div>
             <p class="description">
-                Rosticería &quot;Los Gavilanes&quot;
+                Rosticería &quot;Los Gavilanes&quot; — Tradición, sabor y calidez para tu mesa este noviembre
             </p>
             <div class="hero-cta-actions">
-                <a href="#menu" class="cta-button">🍗 Ver menú</a>
+                <a href="#menu" class="cta-button">🍗 Ver menú de temporada</a>
                 <a href="https://maps.app.goo.gl/VkP6N3KNesrVycSb7" target="_blank" rel="noopener noreferrer" class="cta-button cta-maps">📍 Ver en Maps</a>
             </div>
         </div>
     </header>
 
-    <div class="november-ribbon">🌼 ¡Noviembre en Los Gavilanes! Pollo y piernas de pavo para tus comidas de otoño 🍂</div>
+    <div class="november-ribbon">🌼 ¡Tradición de Noviembre en Los Gavilanes! Pollo rostizado y piernas de pavo doraditas para tus reuniones de otoño 🍂🕯️</div>
     <aside class="road-notice" aria-labelledby="road-notice-title">
         <div class="road-notice-icon" aria-hidden="true">📢</div>
         <div>
@@ -510,19 +566,37 @@
     <section class="products-section" id="menu">
         <div class="products-inner">
             <h2 class="products-title">🛒 Nuestros Productos</h2>
-            <p class="products-subtitle">Todo lo que encuentras en nuestro local</p>
+            <p class="products-subtitle">El sabor tradicional que reúne a la familia este noviembre</p>
+
+            <div class="november-promo-banner">
+                <div class="november-promo-content">
+                    <span class="november-promo-tag">🌼 Especiales de Noviembre • Otoño en Familia</span>
+                    <h3>🦃 ¡Que no falte el sabor en tus reuniones de noviembre!</h3>
+                    <p>Para las tardes frescas de otoño, convivios familiares y puentes de noviembre, consiente a los tuyos con nuestro pollo recién rostizado y nuestras tradicionales piernas de pavo.</p>
+                    <div class="november-promo-highlights">
+                        <span class="november-promo-pill">🍗 Pollo dorado al punto</span>
+                        <span class="november-promo-pill">🦃 Piernas de pavo gigantes</span>
+                        <span class="november-promo-pill">🛵 Envío rápido a domicilio</span>
+                    </div>
+                </div>
+                <a href="tel:+525589675290" class="november-promo-cta">☎️ Pedir ahora a domicilio</a>
+            </div>
+
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card seasonal-star">
+                    <span class="seasonal-tag">🌼 Ideal para compartir</span>
                     <div class="product-emoji">🍗</div>
                     <h3>Pollo Rostizado</h3>
                     <p>Entero, medio o por pieza. Jugoso y dorado al punto.</p>
                 </div>
-                <div class="product-card">
+                <div class="product-card seasonal-star">
+                    <span class="seasonal-tag">🔥 Favorito de Noviembre</span>
                     <div class="product-emoji">🦃</div>
                     <h3>Piernas de Pavo</h3>
                     <p>Grandes, sabrosas y perfectas para compartir en familia.</p>
                 </div>
                 <div class="product-card">
+                    <span class="seasonal-tag">🍂 Clásico para botanear</span>
                     <div class="product-emoji">🍖</div>
                     <h3>Pescuesos</h3>
                     <p>Una delicia rostizada, ideal para botanear o acompañar.</p>
