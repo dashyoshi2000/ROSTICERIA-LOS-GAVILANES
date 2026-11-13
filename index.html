@@ -366,83 +366,47 @@
 :root[data-theme="dark"] .cta-button:hover{background:#9f1239}
 @media(max-width:480px){.theme-toggle{top:10px;right:10px;padding:9px 12px;font-size:14px}}
 
-/* Halloween: decoración opcional, independiente del modo claro/oscuro */
-.halloween-toggle{position:fixed;top:16px;right:185px;z-index:1000;background:#301047;color:#fff;border:2px solid #fb923c;border-radius:30px;padding:11px 15px;cursor:pointer;font-size:15px;font-weight:700;box-shadow:0 4px 16px #0004}
-.halloween-toggle:focus-visible{outline:3px solid #facc15;outline-offset:3px}
-.halloween-decoration{display:none;position:absolute;z-index:2;left:0;right:0;top:22px;pointer-events:none;justify-content:space-around;font-size:clamp(22px,4vw,44px);filter:drop-shadow(0 4px 5px #0008)}
-.halloween-ribbon{display:none;padding:15px 18px;text-align:center;background:#301047;color:#fff2d8;font-weight:700;font-size:clamp(15px,2.3vw,22px);border-bottom:3px solid #fb923c}
-:root[data-halloween="on"]{--primary:#ea580c;--primary-hover:#c2410c;--light:#fff7ed;--dark:#2e1065;--glass-bg:rgba(255,247,237,.95)}
-:root[data-halloween="on"] .halloween-decoration{display:flex}
-:root[data-halloween="on"] .halloween-ribbon{display:block}
-:root[data-halloween="on"] .hero::before{background:linear-gradient(135deg,rgba(39,13,65,.85),rgba(154,52,18,.62))}
-:root[data-halloween="on"] .products-section{background:linear-gradient(135deg,#ffedd5,#f3e8ff);border-top-color:#fb923c}
-:root[data-halloween="on"] .badge{background:#fed7aa;color:#7c2d12}
-:root[data-halloween="on"] .rating{color:#a16207}
-:root[data-halloween="on"] .cta-button{background:#c2410c;color:#fff}
-:root[data-halloween="on"] .cta-button:hover{background:#9a3412}
-:root[data-halloween="on"] .info-icon{background:#ffedd5;color:#9a3412}
-:root[data-halloween="on"] .halloween-toggle{background:#ea580c;border-color:#fed7aa;color:#fff}
-:root[data-theme="dark"][data-halloween="on"]{--light:#140f23;--dark:#f8fafc;--glass-bg:rgba(36,22,49,.95)}
-:root[data-theme="dark"][data-halloween="on"] .products-section{background:linear-gradient(135deg,#231233,#3b1b24)}
-:root[data-theme="dark"][data-halloween="on"] .product-card,
-:root[data-theme="dark"][data-halloween="on"] .info-item{background:#2d203a;border-color:#a855f7}
-:root[data-theme="dark"][data-halloween="on"] .product-card h3,
-:root[data-theme="dark"][data-halloween="on"] .info-text h3,
-:root[data-theme="dark"][data-halloween="on"] .products-title{color:#fff7ed}
-:root[data-theme="dark"][data-halloween="on"] .product-card p,
-:root[data-theme="dark"][data-halloween="on"] .info-text p,
-:root[data-theme="dark"][data-halloween="on"] .products-subtitle{color:#e9d5ff}
-:root[data-theme="dark"][data-halloween="on"] .rating{color:#fbbf24}
-:root[data-theme="dark"][data-halloween="on"] .badge{color:#7c2d12}
-@media(max-width:480px){.halloween-toggle{top:57px;right:10px;padding:8px 11px;font-size:13px}.halloween-decoration{top:112px;font-size:21px}}
+/* Noviembre: otoño, cempasúchil y fiestas de la temporada */
+:root[data-november="on"]{--primary:#d97706;--primary-hover:#b45309;--light:#fffbeb;--dark:#431407;--glass-bg:rgba(255,251,235,.95)}
+.november-ribbon{display:none;padding:15px 18px;text-align:center;background:#7c2d12;color:#fef3c7;font-weight:700;font-size:clamp(15px,2.3vw,22px);border-bottom:3px solid #f59e0b}
+:root[data-november="on"] .november-ribbon{display:block}
+.november-decoration{display:none;position:absolute;z-index:2;left:0;right:0;top:22px;pointer-events:none;justify-content:space-around;font-size:clamp(22px,4vw,44px);filter:drop-shadow(0 4px 5px #0008)}
+:root[data-november="on"] .november-decoration{display:flex}
+:root[data-november="on"] .hero::before{background:linear-gradient(135deg,rgba(67,20,7,.82),rgba(217,119,6,.55))}
+:root[data-november="on"] .products-section{background:linear-gradient(135deg,#fef3c7,#ffedd5);border-top-color:#f59e0b}
+:root[data-november="on"] .badge{background:#fde68a;color:#78350f}
+:root[data-november="on"] .rating{color:#a16207}
+:root[data-november="on"] .cta-button{background:#b45309;color:#fff}
+:root[data-november="on"] .cta-button:hover{background:#92400e}
+:root[data-november="on"] .info-icon{background:#fef3c7;color:#92400e}
+:root[data-theme="dark"][data-november="on"]{--light:#1c120b;--dark:#f8fafc;--glass-bg:rgba(41,28,18,.95)}
+:root[data-theme="dark"][data-november="on"] .products-section{background:linear-gradient(135deg,#2a1a0e,#3b1f12)}
+:root[data-theme="dark"][data-november="on"] .product-card,
+:root[data-theme="dark"][data-november="on"] .info-item{background:#33231a;border-color:#f59e0b}
+:root[data-theme="dark"][data-november="on"] .product-card h3,
+:root[data-theme="dark"][data-november="on"] .info-text h3,
+:root[data-theme="dark"][data-november="on"] .products-title{color:#fff7ed}
+:root[data-theme="dark"][data-november="on"] .product-card p,
+:root[data-theme="dark"][data-november="on"] .info-text p,
+:root[data-theme="dark"][data-november="on"] .products-subtitle{color:#fde68a}
+:root[data-theme="dark"][data-november="on"] .rating{color:#fbbf24}
+:root[data-theme="dark"][data-november="on"] .badge{color:#78350f}
+@media(max-width:480px){.november-decoration{top:112px;font-size:21px}}
 
-/* Halloween permanente: murciélagos y telarañas */
-.halloween-scene{position:fixed;inset:0;z-index:900;pointer-events:none;overflow:hidden}
-.halloween-scene .web{position:absolute;font-size:clamp(55px,10vw,120px);line-height:1;opacity:.8;filter:drop-shadow(0 2px 3px #0007)}
-.halloween-scene .tl{top:-15px;left:-15px;transform:rotate(-25deg)}
-.halloween-scene .tr{top:-15px;right:-15px;transform:scaleX(-1) rotate(-25deg)}
-.halloween-scene .bl{bottom:-15px;left:-15px;transform:rotate(25deg)}
-.halloween-scene .br{bottom:-15px;right:-15px;transform:scaleX(-1) rotate(25deg)}
-.halloween-scene .bat{position:absolute;top:0;left:0;font-size:clamp(25px,4vw,45px);opacity:0;filter:drop-shadow(0 3px 4px #000a);animation:bat-descend 5.5s ease-in-out forwards;will-change:transform,opacity}
-.halloween-scene .b1{--bat-x:15vw;--bat-drift:6vw;animation-delay:.15s}
-.halloween-scene .b2{--bat-x:49vw;--bat-drift:-8vw;animation-delay:.55s;font-size:32px}
-.halloween-scene .b3{--bat-x:78vw;--bat-drift:5vw;animation-delay:1s;font-size:38px}
-@keyframes bat-descend{
-0%{transform:translate(var(--bat-x),-15vh) rotate(-16deg) scale(.65);opacity:0}
-12%{opacity:1}
-45%{transform:translate(calc(var(--bat-x) + var(--bat-drift)),35vh) rotate(14deg) scale(1.1);opacity:1}
-75%{opacity:1}
-100%{transform:translate(var(--bat-x),110vh) rotate(-12deg) scale(.8);opacity:0}
+/* Lluvia suave de pétalos de cempasúchil y hojas de otoño al abrir la página */
+.november-scene{position:fixed;inset:0;z-index:900;pointer-events:none;overflow:hidden}
+.november-scene .petal{position:absolute;top:-8vh;left:var(--x);font-size:var(--s);opacity:0;filter:drop-shadow(0 2px 3px #0006);animation:petal-fall var(--dur) ease-in-out var(--delay) forwards;will-change:transform,opacity}
+@keyframes petal-fall{
+0%{transform:translate(0,0) rotate(0deg);opacity:0}
+8%{opacity:1}
+30%{transform:translate(var(--sway),30vh) rotate(110deg)}
+60%{transform:translate(calc(var(--sway) * -1),68vh) rotate(230deg)}
+90%{opacity:1}
+100%{transform:translate(var(--sway),112vh) rotate(360deg);opacity:0}
 }
-@media(prefers-reduced-motion:reduce){.halloween-scene .bat{animation:none;opacity:0}}
+@media(prefers-reduced-motion:reduce){.november-scene{display:none}}
 
-/* Bandada de murciélagos cruzando la pantalla */
-.flock{position:absolute;inset:0;overflow:hidden}
-.flock .fb{position:absolute;top:var(--y);left:0;font-size:var(--s);opacity:0;filter:drop-shadow(0 3px 4px #000a);animation:bat-cross var(--dur) linear var(--delay) forwards;will-change:transform,opacity}
-.flock .fb i{display:block;font-style:normal;transform-origin:center;animation:bat-flap .38s ease-in-out infinite alternate}
-.flock .fb.rtl{animation-name:bat-cross-back}
-@keyframes bat-cross{
-0%{transform:translate(-12vw,0) rotate(6deg);opacity:0}
-6%{opacity:1}
-25%{transform:translate(23vw,var(--amp)) rotate(-8deg)}
-50%{transform:translate(50vw,calc(var(--amp) * -1)) rotate(8deg)}
-75%{transform:translate(77vw,var(--amp)) rotate(-8deg)}
-94%{opacity:1}
-100%{transform:translate(112vw,0) rotate(6deg);opacity:0}
-}
-@keyframes bat-cross-back{
-0%{transform:translate(112vw,0) scaleX(-1) rotate(6deg);opacity:0}
-6%{opacity:1}
-25%{transform:translate(77vw,var(--amp)) scaleX(-1) rotate(-8deg)}
-50%{transform:translate(50vw,calc(var(--amp) * -1)) scaleX(-1) rotate(8deg)}
-75%{transform:translate(23vw,var(--amp)) scaleX(-1) rotate(-8deg)}
-94%{opacity:1}
-100%{transform:translate(-12vw,0) scaleX(-1) rotate(6deg);opacity:0}
-}
-@keyframes bat-flap{from{transform:scaleY(1) scaleX(1)}to{transform:scaleY(.55) scaleX(1.12)}}
-@media(prefers-reduced-motion:reduce){.flock{display:none}}
-
-        .hero-cta-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; justify-content: center; }
+.hero-cta-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; justify-content: center; }
         .hero-cta-actions .cta-button { padding: 14px 24px; font-size: 1rem; }
         .hero-cta-actions .cta-maps { background: #334155; color: #fff; box-shadow: 0 8px 25px #0003; }
         .hero-cta-actions .cta-maps:hover { background: #1e293b; }
@@ -466,13 +430,13 @@
         :root[data-theme="dark"] .phone-list a:hover { background:#4c3151; }
         @media(max-width:760px) { .road-notice {margin:38px 16px 0;padding:22px 18px;gap:12px}.road-notice-icon{font-size:2rem}.phone-list{grid-template-columns:1fr}.info-item{padding:20px 16px;gap:12px} }
 </style>
-<script>try{if(localStorage.getItem('gavilanes-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script><script>document.documentElement.dataset.halloween='on';</script></head>
+<script>try{if(localStorage.getItem('gavilanes-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script><script>document.documentElement.dataset.november='on';</script></head>
 
-<body><div class="halloween-scene" aria-hidden="true"><span class="web tl">🕸️</span><span class="web tr">🕸️</span><span class="web bl">🕸️</span><span class="web br">🕸️</span><span class="bat b1">🦇</span><span class="bat b2">🦇</span><span class="bat b3">🦇</span><div class="flock"><span class="fb" style="--y:47vh;--s:26px;--dur:6.7s;--delay:1.21s;--amp:-9vh"><i>🦇</i></span><span class="fb" style="--y:52vh;--s:40px;--dur:5.7s;--delay:1.61s;--amp:-9vh"><i>🦇</i></span><span class="fb" style="--y:17vh;--s:35px;--dur:6.8s;--delay:1.82s;--amp:9vh"><i>🦇</i></span><span class="fb rtl" style="--y:13vh;--s:40px;--dur:5.9s;--delay:2.1s;--amp:-9vh"><i>🦇</i></span><span class="fb" style="--y:56vh;--s:23px;--dur:8.4s;--delay:2.33s;--amp:-6vh"><i>🦇</i></span><span class="fb" style="--y:43vh;--s:35px;--dur:5.9s;--delay:2.63s;--amp:6vh"><i>🦇</i></span><span class="fb" style="--y:29vh;--s:25px;--dur:7.2s;--delay:3.04s;--amp:6vh"><i>🦇</i></span><span class="fb rtl" style="--y:18vh;--s:39px;--dur:7.6s;--delay:3.3s;--amp:-6vh"><i>🦇</i></span><span class="fb" style="--y:69vh;--s:43px;--dur:7.1s;--delay:3.63s;--amp:9vh"><i>🦇</i></span><span class="fb" style="--y:64vh;--s:33px;--dur:6.4s;--delay:3.92s;--amp:-6vh"><i>🦇</i></span><span class="fb" style="--y:16vh;--s:40px;--dur:6.4s;--delay:4.12s;--amp:6vh"><i>🦇</i></span><span class="fb rtl" style="--y:63vh;--s:31px;--dur:7.3s;--delay:4.3s;--amp:9vh"><i>🦇</i></span><span class="fb" style="--y:27vh;--s:32px;--dur:6.0s;--delay:4.68s;--amp:-9vh"><i>🦇</i></span><span class="fb" style="--y:15vh;--s:39px;--dur:7.2s;--delay:5.06s;--amp:6vh"><i>🦇</i></span><span class="fb" style="--y:49vh;--s:44px;--dur:6.6s;--delay:5.24s;--amp:9vh"><i>🦇</i></span><span class="fb rtl" style="--y:14vh;--s:24px;--dur:8.3s;--delay:5.52s;--amp:-9vh"><i>🦇</i></span></div></div>
+<body><div class="november-scene" aria-hidden="true"><span class="petal" style="--x:59vw;--s:37px;--dur:9.1s;--delay:0.20s;--sway:6vw">🌼</span><span class="petal" style="--x:59vw;--s:36px;--dur:9.1s;--delay:0.48s;--sway:-4vw">🍂</span><span class="petal" style="--x:25vw;--s:36px;--dur:7.9s;--delay:0.76s;--sway:8vw">🌼</span><span class="petal" style="--x:25vw;--s:23px;--dur:7.8s;--delay:1.04s;--sway:-4vw">🍁</span><span class="petal" style="--x:13vw;--s:37px;--dur:8.9s;--delay:1.32s;--sway:-6vw">🌼</span><span class="petal" style="--x:78vw;--s:32px;--dur:9.4s;--delay:1.60s;--sway:8vw">🍂</span><span class="petal" style="--x:85vw;--s:25px;--dur:8.4s;--delay:1.88s;--sway:8vw">🌼</span><span class="petal" style="--x:10vw;--s:21px;--dur:6.6s;--delay:2.16s;--sway:-4vw">🍂</span><span class="petal" style="--x:78vw;--s:20px;--dur:8.8s;--delay:2.44s;--sway:4vw">🌼</span><span class="petal" style="--x:58vw;--s:38px;--dur:9.0s;--delay:2.72s;--sway:8vw">🍁</span><span class="petal" style="--x:31vw;--s:29px;--dur:8.0s;--delay:3.00s;--sway:-6vw">🌼</span><span class="petal" style="--x:60vw;--s:28px;--dur:7.7s;--delay:3.28s;--sway:8vw">🍂</span><span class="petal" style="--x:12vw;--s:28px;--dur:7.4s;--delay:3.56s;--sway:-4vw">🌼</span><span class="petal" style="--x:67vw;--s:29px;--dur:6.6s;--delay:3.84s;--sway:8vw">🍂</span><span class="petal" style="--x:15vw;--s:32px;--dur:6.8s;--delay:4.12s;--sway:4vw">🌼</span><span class="petal" style="--x:51vw;--s:22px;--dur:9.4s;--delay:4.40s;--sway:-6vw">🍁</span><span class="petal" style="--x:29vw;--s:26px;--dur:9.3s;--delay:4.68s;--sway:-6vw">🌼</span><span class="petal" style="--x:62vw;--s:32px;--dur:9.4s;--delay:4.96s;--sway:6vw">🍂</span><span class="petal" style="--x:55vw;--s:22px;--dur:8.2s;--delay:5.24s;--sway:-4vw">🌼</span><span class="petal" style="--x:88vw;--s:28px;--dur:7.5s;--delay:5.52s;--sway:4vw">🍂</span><span class="petal" style="--x:44vw;--s:20px;--dur:9.4s;--delay:5.80s;--sway:-6vw">🌼</span><span class="petal" style="--x:19vw;--s:27px;--dur:8.6s;--delay:6.08s;--sway:-6vw">🍁</span></div>
 <button type="button" id="themeToggle" class="theme-toggle" aria-label="Activar tema oscuro" aria-pressed="false">🌙 Modo oscuro</button>
 
     <header class="hero">
-<div class="halloween-decoration" aria-hidden="true"><span>🎃</span><span>👻</span></div>
+<div class="november-decoration" aria-hidden="true"><span>🌼</span><span>🍂</span></div>
         <div class="glass-card">
             <span class="badge">Especialidad en Pollo</span>
             <h1>Los Gavilanes</h1>
@@ -489,7 +453,7 @@
         </div>
     </header>
 
-    <div class="halloween-ribbon">🎃 ¡Temporada de Halloween en Los Gavilanes! 👻</div>
+    <div class="november-ribbon">🌼 ¡Noviembre en Los Gavilanes! Pollo y piernas de pavo para tus comidas de otoño 🍂</div>
     <aside class="road-notice" aria-labelledby="road-notice-title">
         <div class="road-notice-icon" aria-hidden="true">📢</div>
         <div>
